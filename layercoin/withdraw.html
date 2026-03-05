@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw | LayerCoin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="sidebar" class="sidebar">
+        <h2 style="margin-bottom: 2rem;">LayerCoin</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="referral.html" class="nav-link">Referral</a>
+            <a href="withdraw.html" class="nav-link" style="color: var(--primary);">Withdraw</a>
+            <a href="about.html" class="nav-link">About Us</a>
+        </div>
+    </div>
+
+    <nav>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button id="btnToggleSidebar" class="btn btn-outline" style="padding: 0.5rem;">☰</button>
+            <div class="logo" style="font-weight: 700;">LayerCoin</div>
+        </div>
+        <div class="nav-links">
+            <span id="userName" class="font-bold">Explorer</span>
+            <button id="btnLogout" class="btn btn-outline">Logout</button>
+            <button id="themeToggleBtn" class="btn btn-outline" style="margin-left:0.5rem;">
+                🌙
+            </button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <!-- Balance Area -->
+            <div class="card">
+                <p class="text-muted" style="font-size: 0.85rem; text-transform: uppercase;">Current Balance</p>
+                <h1 id="coinBalance" style="font-size: 3rem; margin: 0.5rem 0;">0</h1>
+                <div style="display: grid; gap: 0.5rem; font-size: 0.9rem;">
+                    <p class="text-success font-bold">1 Coin = ₹0.01</p>
+                    <p class="text-muted">2 coins per page</p>
+                    <p class="text-primary font-bold">10,000 coins = ₹100</p>
+                </div>
+            </div>
+
+            <!-- Withdrawal Requirements -->
+            <div class="card">
+                <h3 style="margin-bottom: 1rem;">Withdrawal Status</h3>
+                <p id="withdrawThresholdMsg" class="text-muted">You need 10,000 LC to withdraw.</p>
+                <div id="thresholdProgressContainer" style="margin-bottom: 1rem; margin-top: 1rem;">
+                    <div class="progress-bar">
+                        <div id="thresholdProgress" class="progress-fill"></div>
+                    </div>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Threshold: 10,000 LC</p>
+            </div>
+        </div>
+
+        <!-- Withdrawal Form -->
+        <div class="card" style="margin-top: 1.5rem; max-width: 800px; margin-inline: auto;">
+            <h3 style="margin-bottom: 1.5rem;">Process Withdrawal</h3>
+            <div id="withdrawForm">
+                <form id="frmWithdraw" style="display: grid; gap: 1.25rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">Full Name</label>
+                            <input type="text" id="withdrawName" placeholder="Enter your name" class="btn btn-outline"
+                                style="text-align: left; background: white; width: 100%;" required>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">Phone
+                                Number</label>
+                            <input type="tel" id="withdrawPhone" placeholder="Enter phone number"
+                                class="btn btn-outline" style="text-align: left; background: white; width: 100%;"
+                                required>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">UPI ID (VPA)</label>
+                        <input type="text" id="withdrawUPI" placeholder="username@upi" class="btn btn-outline"
+                            style="text-align: left; background: white; width: 100%;" required>
+                    </div>
+                    <button type="submit" id="btnWithdrawSubmit" class="btn btn-primary"
+                        style="padding: 1rem; font-size: 1.1rem; font-weight: bold;">Submit Withdrawal Request</button>
+                    <p class="text-muted" style="font-size: 0.8rem; text-align: center;">By submitting, you agree to our
+                        Terms and Conditions.</p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

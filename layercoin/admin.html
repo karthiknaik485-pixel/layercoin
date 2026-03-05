@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Area | LayerCoin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="sidebar" class="sidebar">
+        <h2 style="margin-bottom: 2rem;">LayerCoin</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="referral.html" class="nav-link">Referral</a>
+            <a href="withdraw.html" class="nav-link">Withdraw</a>
+            <a href="about.html" class="nav-link">About Us</a>
+        </div>
+    </div>
+
+    <nav>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button id="btnToggleSidebar" class="btn btn-outline" style="padding: 0.5rem;">☰</button>
+            <div class="logo" style="font-weight: 700;">Admin Central</div>
+        </div>
+        <div class="nav-links">
+            <button onclick="window.location.href='dashboard.html'" class="btn btn-outline">Exit Admin</button>
+            <button id="themeToggleBtn" class="btn btn-outline" style="margin-left:0.5rem;">
+                🌙
+            </button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+            <div class="card">
+                <h3>System Broadcast</h3>
+                <form id="frmNotification" style="display: grid; gap: 1rem; margin-top: 1rem;">
+                    <div style="display: flex; gap: 1rem;">
+                        <select id="notiTarget" class="btn btn-outline"
+                            style="flex: 1; text-align: left; background: white;">
+                            <option value="allUsers">All Users</option>
+                            <option value="specificUser">Specific User</option>
+                        </select>
+                        <input type="text" id="notiUID" placeholder="Target UID" class="btn btn-outline"
+                            style="flex: 1; text-align: left; background: white;">
+                    </div>
+                    <input type="text" id="notiTitle" placeholder="Notification Title" class="btn btn-outline"
+                        style="text-align: left; background: white;" required>
+                    <textarea id="notiMessage" placeholder="Message content..." class="btn btn-outline"
+                        style="text-align: left; background: white; min-height: 100px;" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Signal</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>System Overview</h3>
+                <p class="text-muted">Manage system-wide parameters and monitor status.</p>
+                <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-gray); border-radius: 8px;">
+                    <p class="font-bold">Database Status</p>
+                    <p class="text-success">Connected & Operational</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Publishing Section -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3>Publish Content</h3>
+            <p class="text-muted" style="margin-bottom: 1.5rem;">Create new articles/pages for the dashboard.</p>
+            <form id="frmBlog" style="display: grid; gap: 1.25rem;">
+                <input type="text" id="blogTitleInput" placeholder="Article Title" class="btn btn-outline"
+                    style="text-align: left; background: white;" required>
+                <textarea id="blogContentInput" placeholder="Content (HTML allowed)..." class="btn btn-outline"
+                    style="text-align: left; background: white; min-height: 150px;" required></textarea>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <input type="url" id="blogImageURL" placeholder="Image URL (optional)" class="btn btn-outline"
+                        style="text-align: left; background: white;">
+                    <input type="url" id="blogVideoURL" placeholder="Video URL (optional)" class="btn btn-outline"
+                        style="text-align: left; background: white;">
+                </div>
+                <button type="submit" class="btn btn-primary" style="padding: 1rem;">Publish to Dashboard</button>
+            </form>
+        </div>
+
+        <!-- Ads Management Section -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3>Ads Management</h3>
+            <p class="text-muted" style="margin-bottom: 1.5rem;">Update global advertisement codes for the platform.</p>
+            <form id="frmAdsManagement" style="display: grid; gap: 1.5rem;">
+                <div>
+                    <label class="font-bold" style="display: block; margin-bottom: 0.5rem;">Banner Ad Code</label>
+                    <textarea id="adBannerCode" placeholder="Paste Banner Script/HTML here..." class="btn btn-outline"
+                        style="text-align: left; background: white; min-height: 80px; font-family: monospace; width: 100%;"
+                        required></textarea>
+                </div>
+                <div>
+                    <label class="font-bold" style="display: block; margin-bottom: 0.5rem;">Native Ad Code</label>
+                    <textarea id="adNativeCode" placeholder="Paste Native Ads Script/HTML here..."
+                        class="btn btn-outline"
+                        style="text-align: left; background: white; min-height: 80px; font-family: monospace; width: 100%;"
+                        required></textarea>
+                </div>
+                <div>
+                    <label class="font-bold" style="display: block; margin-bottom: 0.5rem;">Social Bar Ad Code</label>
+                    <textarea id="adSocialCode" placeholder="Paste Social Bar Script/HTML here..."
+                        class="btn btn-outline"
+                        style="text-align: left; background: white; min-height: 80px; font-family: monospace; width: 100%;"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="padding: 1rem;">Save Platform Ads</button>
+            </form>
+        </div>
+
+        <div class="card" style="padding: 0; overflow: hidden;">
+            <h3 style="padding: 1.5rem; border-bottom: 1px solid var(--border);">Active Withdrawal Requests</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Amount (LC)</th>
+                            <th>Payment Info</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="withdrawRequestsList">
+                        <!-- Data rows injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

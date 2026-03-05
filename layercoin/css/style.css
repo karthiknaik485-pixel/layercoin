@@ -1,0 +1,316 @@
+/* 
+   LayerCoin - LIGHTWEIGHT 2D PROFESSIONAL EDITION
+   Performance First | Clean 2D | Minimal CSS | Scalable
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #ffffff;
+    --bg-gray: #f9fafb;
+    --primary: #2563eb;
+    --text-color: #111827;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --success: #10b981;
+    --error: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* --- LAYOUT --- */
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-gray);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* --- COMPONENTS --- */
+
+.card {
+    background-color: var(--bg-gray);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dark);
+}
+
+.btn-outline:hover {
+    background-color: var(--bg-gray);
+}
+
+/* --- DASHBOARD SPECIFICS --- */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background-color: var(--bg-gray);
+    border-right: 1px solid var(--border);
+    padding: 2rem;
+    z-index: 200;
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary);
+    width: 0%;
+}
+
+/* --- HOME PAGE HERO & ANIMATIONS --- */
+
+.hero-section {
+    position: relative;
+    padding: 8rem 2rem;
+    background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--primary);
+    animation: underlineExpand 1.5s ease-out 0.5s forwards;
+}
+
+.floating-shape {
+    position: absolute;
+    background: var(--primary);
+    opacity: 0.05;
+    border-radius: 50%;
+    z-index: 1;
+    animation: float 10s infinite alternate ease-in-out;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    right: -50px;
+    animation-duration: 7s;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    top: 10%;
+    right: 10%;
+    animation-duration: 12s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes underlineExpand {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes float {
+    from {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    to {
+        transform: translate(30px, 30px) rotate(10deg);
+    }
+}
+
+/* --- TABLES --- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background-color: var(--bg-gray);
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+/* --- UTILS --- */
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-success {
+    color: var(--success);
+}
+
+.text-error {
+    color: var(--error);
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem;
+    }
+
+    .container {
+        margin: 1rem auto;
+    }
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --bg-color: #111827;
+    --bg-gray: #1f2937;
+    --primary: #3b82f6;
+    --text-color: #f9fafb;
+    --text-muted: #9ca3af;
+    --border: #374151;
+    --success: #10b981;
+    --error: #ef4444;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #111827;
+    color: #f9fafb;
+    border-color: var(--border);
+}

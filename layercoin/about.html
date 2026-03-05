@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | LayerCoin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="sidebar" class="sidebar">
+        <h2 style="margin-bottom: 2rem;">LayerCoin</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="referral.html" class="nav-link">Referral</a>
+            <a href="withdraw.html" class="nav-link">Withdraw</a>
+            <a href="about.html" class="nav-link" style="color: var(--primary);">About Us</a>
+        </div>
+    </div>
+
+    <nav>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button id="btnToggleSidebar" class="btn btn-outline" style="padding: 0.5rem;">☰</button>
+            <div class="logo" style="font-weight: 700;">LayerCoin</div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <button class="btn btn-primary" id="btnLogin" style="display: none;">Login</button>
+            <span id="userName" class="font-bold" style="display: none;">Explorer</span>
+            <button id="btnLogout" class="btn btn-outline" style="display: none;">Logout</button>
+            <button id="themeToggleBtn" class="btn btn-outline" style="margin-left:0.5rem;">
+                🌙
+            </button>
+        </div>
+    </nav>
+
+    <main class="container" style="max-width: 800px; margin-top: 3rem; margin-bottom: 5rem;">
+        <div class="card" style="padding: 3rem;">
+            <h1 style="margin-bottom: 2rem; border-bottom: 2px solid var(--primary); padding-bottom: 1rem;">About
+                LayerCoin</h1>
+
+            <div style="display: grid; gap: 1.5rem; line-height: 1.6; color: var(--text-dark);">
+                <p><strong>LayerCoin</strong> is an educational and knowledge-based content platform dedicated to
+                    providing valuable information to our users through curated content and interactive experiences.</p>
+
+                <h3 style="margin-top: 1rem; color: var(--primary);">Terms & Conditions</h3>
+
+                <ul style="padding-left: 1.5rem; display: grid; gap: 1rem;">
+                    <li>Users must not use VPN (Virtual Private Network) services while accessing the platform.</li>
+                    <li>Users must not use proxy servers or any other masking technologies.</li>
+                    <li>Multiple account creation by a single user is strictly prohibited.</li>
+                    <li>Any suspicious activity may result in a permanent ban from the platform.</li>
+                    <li>The use of automated bots or scripts is strictly prohibited.</li>
+                    <li>The platform reserves the right to suspend or terminate accounts that violate these terms.</li>
+                    <li>Earnings are subject to platform rules, verification, and internal policies.</li>
+                    <li>The platform reserves the right to modify these terms and conditions at any time without prior
+                        notice.</li>
+                </ul>
+
+                <p
+                    style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); padding-top: 2rem;">
+                    &copy; 2026 LayerCoin Platform. All rights reserved.
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

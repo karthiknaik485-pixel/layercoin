@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral | LayerCoin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="sidebar" class="sidebar">
+        <h2 style="margin-bottom: 2rem;">LayerCoin</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="referral.html" class="nav-link" style="color: var(--primary);">Referral</a>
+            <a href="withdraw.html" class="nav-link">Withdraw</a>
+            <a href="about.html" class="nav-link">About Us</a>
+        </div>
+    </div>
+
+    <nav>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button id="btnToggleSidebar" class="btn btn-outline" style="padding: 0.5rem;">☰</button>
+            <div class="logo" style="font-weight: 700;">LayerCoin</div>
+        </div>
+        <div class="nav-links">
+            <span id="userName" class="font-bold">Explorer</span>
+            <button id="btnLogout" class="btn btn-outline">Logout</button>
+            <button id="themeToggleBtn" class="btn btn-outline" style="margin-left:0.5rem;">
+                🌙
+            </button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="card" style="max-width: 600px; margin: 2rem auto;">
+            <h2 style="margin-bottom: 1.5rem;">Refer & Earn</h2>
+
+            <div style="margin-bottom: 2rem;">
+                <h4 style="margin-bottom: 0.5rem;">Your Referral Code</h4>
+                <div
+                    style="background: var(--bg-gray); padding: 1rem; border-radius: 8px; font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; text-align: center; border: 1px dashed var(--primary);">
+                    <span id="referralCodeDisplay">------</span>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h4 style="margin-bottom: 0.5rem;">Full Referral Link</h4>
+                <div
+                    style="background: var(--bg-gray); padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border);">
+                    <code id="referralLink" style="word-break: break-all;">layercoin.in?ref=...</code>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;"
+                    onclick="navigator.clipboard.writeText(document.getElementById('referralLink').innerText); alert('Link copied!')">Copy
+                    Link</button>
+            </div>
+
+            <div class="card"
+                style="background: rgba(var(--primary-rgb), 0.05); border: 1px solid var(--primary); padding: 1rem;">
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Earnings Explanation</h4>
+                <p style="margin: 0; font-size: 0.95rem;">You earn <strong>₹0.005</strong> for every page your referred
+                    user completes.</p>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h3 style="margin-bottom: 1rem;">Referral Statistics</h3>
+
+                <div style="display:flex; gap:2rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+                    <div>
+                        <p class="text-muted">Total Referrals</p>
+                        <h2 id="totalReferrals">0</h2>
+                    </div>
+                    <div>
+                        <p class="text-muted">Referral Earnings (LC)</p>
+                        <h2 id="referralEarnings">0</h2>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="margin-bottom:1rem;">Referred Users</h4>
+                    <div style="overflow-x:auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="text-align: left; border-bottom: 1px solid var(--border);">
+                                    <th style="padding: 0.75rem 0;">Name</th>
+                                    <th style="padding: 0.75rem 0;">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody id="referralUsersList">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>
