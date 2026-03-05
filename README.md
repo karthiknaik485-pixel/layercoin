@@ -1,0 +1,2 @@
+# layercoin
+LayerCoin earning platform
